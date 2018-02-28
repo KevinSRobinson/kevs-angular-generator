@@ -11,29 +11,36 @@ var copyTplsWithData = function (runner, source, dest, data) {
     //console.log(items);
     
     for (var f in items) {
-      console.log(items[f]);
 
-      fs.stat(runner.templatePath(items[f]), function (err, stats) {
-        if (err) {
-            return console.error(err);
-        }
+      if(items[f].includes('.')){
+        console.log(items[f]);
+        console.log(runner.templatePath(items[f]));
+        var currentFile = runner.templatePath(items[f]);
+        let destPath = dest + items[f].replace('_', '');
+        runner.fs.copyTpl(currentFile, runner.destinationPath(destPath), {
+            data: data
+        });
+      }      
 
 
-  
-        // if(!stats.isDirectory())
-        // {
-        //   runner.fs.copyTpl(runner.templatePath(currentFile), runner.destinationPath(destPath), {
-        //     data: data
-        //    });
-        // }
+    }
+    //   fs.stat(runner.templatePath(items[f]), function (err, stats) {
+
+    //      console.log(items[f]);
+    //     // // if(!stats.isDirectory())
+    //     // // {
+    //     // //   runner.fs.copyTpl(runner.templatePath(currentFile), runner.destinationPath(destPath), {
+    //     // //     data: data
+    //     // //    });
+    //     // // }
       
 
-
-        console.log("isDirectory ? " + stats.isDirectory());    
-     });
+    //     // // console.log("isDirectory ? " + stats.isDirectory());    
+    //     //  console.log("file ? " +  JSON.stringify(stats));    
+    //  });
 
      
-    }
+   // }
     // for (var i=0; i<items.length; i++) {
     //     console.log(items[i]);
     // }
