@@ -29,6 +29,8 @@ var copyTplsWithData = function (runner, source, dest, data) {
         var currentFile = runner.templatePath(srcPath + items[f]);
         var destPath = dest + items[f].replace('_', '');
 
+        console.log('data=' + data.featureName);
+
         runner.fs.copyTpl(currentFile, runner.destinationPath(destPath), {
           data: data
         });

@@ -1,0 +1,8 @@
+{
+    "People": {
+        "type": "string"
+    },
+    "Organisations": {
+        "type": "string"
+    }
+}
