@@ -5,26 +5,55 @@ const FileHound  = require('filehound');
 var fs = require('fs');
 var copyTplsWithData = function (runner, source, dest, data) {
 
-  console.log(runner.templatePath(source));
+  // runner.templateBase();
+  console.log('source = ' +  source);
+  console.log('path = ' + runner.templatePath(source));
 
-  fs.readdir(runner.templatePath(), function(err, items) {
-    //console.log(items);
+  var srcPath = runner.templatePath(source);
+
+  fs.readdir(runner.templatePath(srcPath), function(err, items) {
     
     for (var f in items) {
-
       if(items[f].includes('.')){
-        console.log(items[f]);
-        console.log(runner.templatePath(items[f]));
-        var currentFile = runner.templatePath(items[f]);
-        let destPath = dest + items[f].replace('_', '');
+
+
+        var currentFile = runner.templatePath(srcPath + items[f]);
+        var destPath = dest + items[f].replace('_', '');
+
         runner.fs.copyTpl(currentFile, runner.destinationPath(destPath), {
             data: data
         });
-      }      
-
-
+      }    
     }
-    //   fs.stat(runner.templatePath(items[f]), function (err, stats) {
+   
+
+
+
+  })
+
+
+}
+
+  // fs.readdir(runner.templatePath(source), function(err, items) {
+
+
+  // console.log(items);
+    
+  //   for (var f in items) {
+
+  //     if(items[f].includes('.')){
+  //       console.log(items[f]);
+  //       console.log(runner.templatePath(items[f]));
+  //       var currentFile = runner.templatePath(items[f]);
+  //       let destPath = dest + items[f].replace('_', '');
+  //       runner.fs.copyTpl(currentFile, runner.destinationPath(destPath), {
+  //           data: data
+  //       });
+  //     }      
+
+
+  //   }
+  //   //   fs.stat(runner.templatePath(items[f]), function (err, stats) {
 
     //      console.log(items[f]);
     //     // // if(!stats.isDirectory())
@@ -44,7 +73,7 @@ var copyTplsWithData = function (runner, source, dest, data) {
     // for (var i=0; i<items.length; i++) {
     //     console.log(items[i]);
     // }
-});
+//});
 
   // const files  = FileHound.create()
   // .path(runner.templatePath())
@@ -71,6 +100,6 @@ var copyTplsWithData = function (runner, source, dest, data) {
   //    });
   // }
 
-};
+//};
 
 module.exports.copyTplsWithData = copyTplsWithData;
