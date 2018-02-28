@@ -1,41 +1,69 @@
 const chalk = require('chalk');
 const settings = require('../settings');
+const FileHound  = require('filehound');
 
 var fs = require('fs');
 var copyTplsWithData = function (runner, source, dest, data) {
-  // console.log('dest = '  +  chalk.red(dest));
-  // console.log('source = '  +  chalk.red(dest));
 
-  var source = 'Core';
-  var feature = '';
-  if (source != undefined)
-  {
-    var files1 = fs.readdirSync('./generators/app/templates/' + source + '/');
+  console.log(runner.templatePath(source));
+
+  fs.readdir(runner.templatePath(), function(err, items) {
+    //console.log(items);
+    
+    for (var f in items) {
+      console.log(items[f]);
+
+      fs.stat(runner.templatePath(items[f]), function (err, stats) {
+        if (err) {
+            return console.error(err);
+        }
+
+
   
+        // if(!stats.isDirectory())
+        // {
+        //   runner.fs.copyTpl(runner.templatePath(currentFile), runner.destinationPath(destPath), {
+        //     data: data
+        //    });
+        // }
+      
 
-     for (var file in files1) {
-        //onsole.log(chalk.red(files1[0]));
-        console.log(chalk.red(files1[file]));
-    //   try {
-        
-  
-         let sourcePath = source + '/' +files1[file];
-         let destPath = dest + feature + files1[file].replace('_', '');
-        
-         console.log('source = ' + chalk.yellow(files1[file]));
 
-        runner.fs.copyTpl(runner.templatePath( sourcePath ), runner.destinationPath(destPath), {
-          data: data
-        });
-   
-  
-    //   } catch (err) {
-    //     console.log(chalk.red(err));
-    //   }
-     }
-  }
+        console.log("isDirectory ? " + stats.isDirectory());    
+     });
 
- 
+     
+    }
+    // for (var i=0; i<items.length; i++) {
+    //     console.log(items[i]);
+    // }
+});
+
+  // const files  = FileHound.create()
+  // .path(runner.templatePath())
+  // .depth(0)
+  // .findSync(); 
+
+  // const files = p => fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory())
+
+  // console.log(files);
+
+  // for (var f in files) {
+
+  //   let file = files[f].split('\\');
+  //   let currentFile = file[file.length - 1];
+  //   console.log('file = ' + currentFile);
+
+  //     let destPath = dest + files[f].replace('_', '');
+
+
+  //     console.log('file = ' + runner.templatePath(currentFile));
+
+  //    runner.fs.copyTpl(runner.templatePath(currentFile), runner.destinationPath(destPath), {
+  //     data: data
+  //    });
+  // }
+
 };
 
 module.exports.copyTplsWithData = copyTplsWithData;
