@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "filehound": "^1.16.2",
+    "lodash": "^4.17.5",
     "yeoman-generator": "^2.0.3"
   }
 }
