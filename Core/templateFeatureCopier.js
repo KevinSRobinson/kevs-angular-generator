@@ -11,9 +11,6 @@ let Process = function (data, currentsrcPath, currentDestPath, runner, feature) 
     let src = currentsrcPath + files[f];    
     let des = currentDestPath + files[f];
 
-    // console.log('src = ' + src);
-    // console.log('des = ' + des);
-   
     runner.fs.copyTpl(src, des,  {data: data    });  
   }
 }
@@ -35,13 +32,6 @@ let Process1 = function (data, currentsrcPath, currentDestPath, runner, feature)
   }
   
 
-
-
-let processFeatureTemplate = function (feature, currentDestPath, items) {
-
-  console.log('featurexxx = ' + feature);
-
-}
 
 let copyTplsWithDataFeature = function (runner, source, dest, data, features, sub) {
  
