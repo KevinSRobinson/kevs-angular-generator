@@ -1,0 +1,41 @@
+{
+    "People": {
+        "type": "object",
+        "properties": {
+            "firstName": {
+                "type": "string"
+            },
+            "lastName": {
+                "type": "string"
+            },
+            "mobile": {
+                "type": "string"
+            }      
+        }
+    },
+    "Organisations": {
+        "type": "object",
+        "properties": {
+            "Name": {
+                "type": "string"
+            },
+            "Description": {
+                "type": "string"
+            },
+            "CompanyType": {
+                "type": "string"
+            }      
+        }
+    },
+    "News": {
+        "type": "object",
+        "properties": {
+            "Name": {
+                "type": "string"
+            },
+            "Description": {
+                "type": "string"
+            }    
+        }
+    }
+}
