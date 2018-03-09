@@ -1,0 +1,48 @@
+{
+    "People": {
+        "properties": [{
+                "name": "firstNname",
+                "type": "string"
+            },
+            {
+                "name": "lastName",
+                "type": "string"
+            },
+            {
+                "name": "mobile",
+                "type": "string"
+            }
+        ]
+    },
+    "Organisations": {
+        "properties": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "name": "companyType",
+                "type": "string"
+            }
+        ]
+    },
+    "News": {
+        "properties": [{
+                "name": "title",
+                "type": "string"
+            },
+            {
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "name": "tags",
+                "type": "string"
+            }
+        ]
+    }
+
+}
