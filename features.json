@@ -2,45 +2,69 @@
     "People": {
         "properties": [{
                 "name": "firstNname",
-                "type": "string"
+                "type": "string",
+                "required": true
             },
             {
                 "name": "lastName",
-                "type": "string"
+                "type": "string",
+                "required": true
             },
             {
                 "name": "mobile",
-                "type": "string"
+                "type": "string",
+                "required": false
+            },
+            {
+                "name": "active",
+                "type": "bool",
+                "required": false
             }
         ]
     },
     "Organisations": {
         "properties": [{
                 "name": "name",
-                "type": "string"
+                "type": "string",
+                "required": true
             },
             {
                 "name": "description",
-                "type": "string"
+                "type": "memo",
+                "required": false
             },
             {
                 "name": "companyType",
-                "type": "string"
+                "type": "string",
+                "required": false
+            },
+            {
+                "name": "active",
+                "type": "bool",
+                "required": false
             }
         ]
     },
     "News": {
         "properties": [{
                 "name": "title",
-                "type": "string"
+                "type": "string",
+                "required": true
             },
             {
                 "name": "description",
-                "type": "string"
+                "type": "memo",
+                "required": true
             },
             {
                 "name": "tags",
-                "type": "string"
+                "type": "string",
+                "required": true
+            },
+            {
+                "name": "active",
+                "type": "bool",
+                "required": true
             }
         ]
     }
