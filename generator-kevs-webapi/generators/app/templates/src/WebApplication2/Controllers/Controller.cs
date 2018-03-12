@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 
 namespace WebApplication2.Controllers
 {
+
+    [EnableCors("AllowSpecific")]
     [Route("api/[controller]")]
     public class <%=data.featureName%>Controller : Controller
     {

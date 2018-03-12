@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Cors;
 
 namespace WebApplication2
 {
@@ -38,6 +39,9 @@ namespace WebApplication2
             loggerFactory.AddDebug();
 
             app.UseMvc();
+              services.AddCors(options => options.AddPolicy("AllowSpecific", p => p.WithOrigins("http://localhost:4200")
+                    .WithMethods("GET")
+                    .WithHeaders("name")));
         }
     }
 }
