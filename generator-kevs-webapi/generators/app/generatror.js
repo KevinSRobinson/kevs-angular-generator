@@ -1,7 +1,7 @@
 const copier = require('../../../Core/templateCopier');
 const features = require('../../../features.json');
 const templateFeatureCopier = require('../../../Core/templateFeatureCopier');
-
+const controllersHelper = require('./controllersHelper')
 
 
 const _ = require('lodash');
@@ -13,8 +13,11 @@ let generate = function (runner) {
     var data = {
       appName: 'Test App',
       featureName: '',
+      getFakeData: controllersHelper.getFakeData,
+      getDto: controllersHelper.getDto
     };
 
+    
     //  copier.copyTplsWithData(runner,  '', dest, '');
     //  copier.copyTplsWithData(runner,  'src/', dest + '/src/', '');
     //  copier.copyTplsWithData(runner,  'src/WebApplication2/', dest + '/src/WebApplication2/', '');

@@ -42,7 +42,6 @@ let copyTplsWithDataFeature = function (runner, source, dest, data, features, su
     
     var destpath = dest + '/' + feature + '/' + sub + '/';
 
-    console.log('destpath = ' + destpath);
 
     Process(data, runner.templatePath(source), destpath, runner, feature);
   }

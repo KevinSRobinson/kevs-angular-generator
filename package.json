@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "faker": "^4.1.0",
     "filehound": "^1.16.2",
     "lodash": "^4.17.5",
     "pluralize": "^7.0.0",

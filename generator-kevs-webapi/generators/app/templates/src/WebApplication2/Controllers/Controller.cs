@@ -6,10 +6,14 @@ namespace WebApplication2.Controllers
     [Route("api/[controller]")]
     public class <%=data.featureName%>Controller : Controller
     {
+
+
+       
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<<%=data.featureName%>Dto> Get()
         {
-            return new string[] { "<%=data.featureName%>1", "<%=data.featureName%>  2" };
+            <%- data.getFakeData(data.featureName) %>
         }
         
         [HttpGet("{id}")]
@@ -18,4 +22,6 @@ namespace WebApplication2.Controllers
             return "<%=data.featureName%>" + id.ToString();
         }
     }
+
+     <%- data.getDto(data.featureName) %>
 }
