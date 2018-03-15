@@ -18,7 +18,16 @@
   },
 
   "frameworks": {
-    "net461": { }
+    "net461": {
+      "dependencies": {
+        "Data": {
+          "target": "project"
+        },
+        "Dtos": {
+          "target": "project"
+        }
+      }
+    }
   },
 
   "buildOptions": {

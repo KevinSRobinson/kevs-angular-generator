@@ -30,6 +30,21 @@ namespace WebApplication2.Controllers
             return _unitOfWork.<%=data.featureName%>.Get(id);
         }
       
+        
+       [HttpPost()]
+    public <%=data.featureName%>Dto Create([FromBody] <%=data.featureName%>Dto <%=data.featureNameCC%>Dto)
+    {
+      return _unitOfWork.<%=data.featureName%>.Update(<%=data.featureNameCC%>Dto);
+    }
+
+    [HttpPut("{id}")]
+    public <%=data.featureName%>Dto Update([FromQuery] int id, [FromBody] <%=data.featureName%>Dto <%=data.featureNameCC%>Dto)
+    {
+        return _unitOfWork.<%=data.featureName%>.Update(<%=data.featureNameCC%>Dto);
+    }
+
+
+        
     }
 
     

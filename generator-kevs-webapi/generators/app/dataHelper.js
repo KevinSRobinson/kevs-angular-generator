@@ -38,6 +38,18 @@ let getProjectImports  = function () {
     return featuresList.join('\n');
 }
 
+// Returns a list of Imports for the project File
+// e.g. 
+//   <Compile Include="Repos\NewsRepo.cs" />
+let getDtoReferences  = function () {
+    let featuresList = [];
+
+    for (var feature in features) {
+        featuresList.push(ejs.render(`<Compile Include="Dtos\\<%=featureName%>Dto.cs" />`, {featureName: feature}));
+    }
+    return featuresList.join('\n');
+}
+
 let getRepoProperties  = function () {
     let featuresList = [];
 
@@ -59,7 +71,12 @@ let getRepoProperties  = function () {
     }
     return featuresList.join('\n');
 }
+
+
+
+
 module.exports.getInterfaceProperties = getInterfaceProperties;
 module.exports.getRepoFields = getRepoFields;
 module.exports.getRepoProperties = getRepoProperties;
 module.exports.getProjectImports = getProjectImports;
+module.exports.getDtoReferences = getDtoReferences;

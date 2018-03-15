@@ -12,7 +12,7 @@ namespace Data.Repos
 
         IEnumerable<<%=data.featureName%>Dto> Get();
         <%=data.featureName%>Dto Get(int id);
-        void Update();
+        <%=data.featureName%>Dto Update(<%=data.featureName%>Dto <%=data.featureName%>Dto);
     }
 
     class <%=data.featureName%>Repo : I<%=data.featureName%>Repo
@@ -36,9 +36,9 @@ namespace Data.Repos
         }
 
         
-        public void Update()
+        public <%=data.featureName%>Dto Update(<%=data.featureName%>Dto <%=data.featureNameCC%>Dto)
         {
-           
+            return  <%=data.featureNameCC%>Dto; 
         }
     }
 }

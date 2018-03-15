@@ -11,10 +11,17 @@ let getProperty = function(property, value){
 let getNumericProperty = function(property, value){
     return  getStartCase(property.name) + ' = ' + value + '';
 }
+let getBooleanProperty = function(property, value){
+    return  getStartCase(property.name) + ' = ' + value;
+}
 
 let getGetFakePropertyData = function (property) {
 
     var dataItem = '';
+
+    if(property.type == 'boolean'){
+        return getBooleanProperty(property, false)
+    }
 
     switch (property.name) {
         case 'id':

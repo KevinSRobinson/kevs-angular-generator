@@ -50,6 +50,12 @@
     <%-data.getProjectImports%>
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
+    <ItemGroup>
+    <ProjectReference Include="..\Dtos\Dtos.csproj">
+      <Project>{3d5760d7-5d5c-46fc-adfe-b0b7ef8cddde}</Project>
+      <Name>Dtos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

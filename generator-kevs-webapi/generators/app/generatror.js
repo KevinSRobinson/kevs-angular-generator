@@ -34,7 +34,8 @@ let generate = function (runner) {
       getInterfaceProperties: dataHelper.getInterfaceProperties(),
       getRepoFields: dataHelper.getRepoFields(),
       getRepoProperties: dataHelper.getRepoProperties(),
-      getProjectImports: dataHelper.getProjectImports()
+      getProjectImports: dataHelper.getProjectImports(),
+      getDtoReferences: dataHelper.getDtoReferences()
     };
 
      var src = 'Web/';

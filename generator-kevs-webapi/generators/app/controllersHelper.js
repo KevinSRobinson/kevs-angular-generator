@@ -18,7 +18,9 @@ let getDtoField = function (property, dataType) {
   if(dataType == 'number'){
     dataType = 'int';
   }
-
+  if(dataType == 'boolean'){
+    dataType = 'bool';
+  }
 
   return ejs.render(` public <%=dataType%> <%=property%>{ get; set; }\n`, {
     dataType: dataType,
@@ -55,7 +57,7 @@ let getMockData = function (featureName) {
   let fields = [];
   var properties = featureHelper.getProperties(featureName);
   for (var property in properties) {
-    fields.push(mockHelper.getGetFakePropertyData(properties[property]));
+     fields.push(mockHelper.getGetFakePropertyData(properties[property]));
   }
   return fields.join(',\n');
 }

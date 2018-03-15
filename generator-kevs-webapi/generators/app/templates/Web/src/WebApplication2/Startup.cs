@@ -30,6 +30,11 @@ namespace WebApplication2
         {
             // Add framework services.
             services.AddMvc();
+             services.AddCors(options => options.AddPolicy("AllowSpecific", p => p.WithOrigins("http://localhost:4200")
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials()
+                    .WithHeaders("name")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,10 +43,13 @@ namespace WebApplication2
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
-              services.AddCors(options => options.AddPolicy("AllowSpecific", p => p.WithOrigins("http://localhost:4200")
-                    .WithMethods("GET")
-                    .WithHeaders("name")));
+          app.UseCors(
+            options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader()
+          );
+
+
+      app.UseMvc();
+             
         }
     }
 }
