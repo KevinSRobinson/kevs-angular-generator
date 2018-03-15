@@ -1,9 +1,3 @@
 {
-    "server": "FPM-KNIT-KRLP01\\SQLEXPRESS",
-    "user": "user1",
-    "pass": "Eastwood44",
-    "db": "Qload",
-    "encrypt": "y",
-    "folder": ".",
-    "oldversions": "n"
+    "outputFolder": "C:/GeneratorsOutput2/app/"
 }

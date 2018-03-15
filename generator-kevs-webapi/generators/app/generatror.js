@@ -4,7 +4,7 @@ const templateFeatureCopier = require('../../../Core/templateFeatureCopier');
 const controllersHelper = require('./controllersHelper')
 const dataHelper = require('./dataHelper')
 const ejs = require('ejs');
-
+const settings = require('../../../settings.json');
 
 // Returns a list of DataService
 // e.g. 
@@ -24,7 +24,7 @@ const _ = require('lodash');
 
 let generate = function (runner) {
 
-    var dest = 'C:/GeneratorsOutput1/';
+    var dest =  settings.outputFolder;
 
     var data = {
       appName: 'Test App',
