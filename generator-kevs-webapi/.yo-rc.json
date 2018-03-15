@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Kevin Robinson",
+      "authorEmail": "kevin.robinson@outlook.com",
+      "authorUrl": ""
+    }
+  }
+}
